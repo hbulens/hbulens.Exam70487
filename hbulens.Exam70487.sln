@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hbulens.Exam70487.ConsoleGUI", "hbulens.Exam70487\hbulens.Exam70487.ConsoleGUI.csproj", "{B5F3AFBF-AF66-4E1C-B2DC-A6297E41DEAD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hbulens.Exam70487.WebApi", "hbulens.Exam70487.WebApi\hbulens.Exam70487.WebApi.csproj", "{CB31BACF-A746-4960-9AF6-510E967683A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hbulens.Exam70487.Common", "hbulens.Exam70487.Common\hbulens.Exam70487.Common.csproj", "{B7E2E5A9-A358-4DE1-BA1A-E7D96A61F6C3}"
@@ -19,16 +17,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hbulens.Exam70487.Core", "h
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "hbulens.Exam70487.Database", "hbulens.Exam70487.Database\hbulens.Exam70487.Database.sqlproj", "{07F7A172-53E2-48E7-B590-8F03E1CFB8E0}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "hbulens.Exam70487.WebUI", "hbulens.Exam70487.WebUI\hbulens.Exam70487.WebUI.xproj", "{3584A3E2-3BD7-45E2-9C05-31C52CECD075}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B5F3AFBF-AF66-4E1C-B2DC-A6297E41DEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5F3AFBF-AF66-4E1C-B2DC-A6297E41DEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5F3AFBF-AF66-4E1C-B2DC-A6297E41DEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5F3AFBF-AF66-4E1C-B2DC-A6297E41DEAD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CB31BACF-A746-4960-9AF6-510E967683A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CB31BACF-A746-4960-9AF6-510E967683A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB31BACF-A746-4960-9AF6-510E967683A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,6 +51,10 @@ Global
 		{07F7A172-53E2-48E7-B590-8F03E1CFB8E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07F7A172-53E2-48E7-B590-8F03E1CFB8E0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{07F7A172-53E2-48E7-B590-8F03E1CFB8E0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3584A3E2-3BD7-45E2-9C05-31C52CECD075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3584A3E2-3BD7-45E2-9C05-31C52CECD075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3584A3E2-3BD7-45E2-9C05-31C52CECD075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3584A3E2-3BD7-45E2-9C05-31C52CECD075}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
