@@ -83,7 +83,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Binders\CustomerModelBinder.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Converters\CustomerConverter.cs" />
     <Compile Include="Formatters\CsvFormatter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
