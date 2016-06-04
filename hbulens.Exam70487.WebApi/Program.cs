@@ -19,9 +19,9 @@ namespace hbulens.Exam70487.WebApi
             string baseAddress = "http://localhost:8080/";
 
             // Start OWIN host 
-            using (WebApp.Start<Startup>(url: baseAddress))
+            using (WebApp.Start<Startup>(baseAddress))
             {
-                Console.WriteLine("Web Api is running.");
+                Console.WriteLine("Web API is running at " + baseAddress);
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadLine();
             }

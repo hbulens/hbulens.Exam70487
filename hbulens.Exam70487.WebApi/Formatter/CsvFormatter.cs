@@ -9,7 +9,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace hbulens.Exam70487.WebApi.Formatter
+namespace hbulens.Exam70487.WebApi.Formatters
 {
     /// <summary>
     /// Code based on http://www.asp.net/web-api/overview/formats-and-model-binding/media-formatters
