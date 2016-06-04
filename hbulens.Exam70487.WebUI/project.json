@@ -1,8 +1,9 @@
-﻿{
+{
   "userSecretsId": "aspnet-hbulens.Exam70487.WebUI-67075678-c7df-4b40-8d4e-06ce36a1043d",
 
   "dependencies": {
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Cors": "1.0.0-rc2-final",
     "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-final",
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0-rc2-final",
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0-rc2-final",

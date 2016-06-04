@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using hbulens.Exam70487.WebUI.Data;
 using hbulens.Exam70487.WebUI.Models;
 using hbulens.Exam70487.WebUI.Services;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 
 namespace hbulens.Exam70487.WebUI
 {
@@ -52,6 +53,15 @@ namespace hbulens.Exam70487.WebUI
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            var policy = new CorsPolicy();
+
+            policy.Headers.Add("*");
+            policy.Methods.Add("*");
+            policy.Origins.Add("*");
+            policy.SupportsCredentials = true;
+
+            services.AddCors(x => x.AddPolicy("mypolicy", policy));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

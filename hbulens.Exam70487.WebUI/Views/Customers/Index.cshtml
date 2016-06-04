@@ -44,3 +44,48 @@
         </ul>
     </div>
 </div>
+
+@section scripts {
+    <script type="text/javascript">
+        // Call Customer web api and accept xml
+        $.ajax({
+            type: "GET",
+            accepts: { "*": "application/xml" },
+            url: 'http://localhost:8080/api/Customers/Get',
+            headers: {
+            },
+            success: function (response) {
+            }
+        });
+
+        // Call Customer web api and accept json explicitly
+        $.ajax({
+            type: "GET",
+            accepts: { "*": "application/json" },
+            url: 'http://localhost:8080/api/Customers/Get',
+            headers: {
+            },
+            success: function (response) {
+            }
+        });
+
+        // Call Customer web api and accept json using getJSON method
+        $.getJSON({
+            url: 'http://localhost:8080/api/Customers/Get',
+            success: function (response) {
+            }
+        });
+
+        // Call Customer web api and accept custom format
+        $.ajax({
+            type: "GET",
+            accepts: { "*": "text/csv" },
+            url: 'http://localhost:8080/api/Customers/Get',
+            headers: {
+            },
+            success: function (response) {
+            }
+        })
+
+    </script>
+}

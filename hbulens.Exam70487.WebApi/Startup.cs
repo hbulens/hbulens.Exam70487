@@ -1,4 +1,6 @@
-﻿using Owin;
+﻿using hbulens.Exam70487.WebApi.Formatter;
+using Microsoft.Owin.Cors;
+using Owin;
 using System.Web.Http;
 
 namespace hbulens.Exam70487.WebApi
@@ -9,6 +11,8 @@ namespace hbulens.Exam70487.WebApi
         // parameter in the WebApp.Start method.
         public void Configuration(IAppBuilder appBuilder)
         {
+            appBuilder.UseCors(CorsOptions.AllowAll);
+
             // Configure Web API for self-host. 
             HttpConfiguration config = new HttpConfiguration();
             config.Routes.MapHttpRoute(
@@ -18,6 +22,8 @@ namespace hbulens.Exam70487.WebApi
             );
 
             appBuilder.UseWebApi(config);
+
+            config.Formatters.Add(new CsvFormatter());
         }
     }
 }
