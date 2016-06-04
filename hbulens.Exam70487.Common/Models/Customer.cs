@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace hbulens.Exam70487.Common
 {
-    public class Customer : Entity
+    public class Customer : Item
     {
         #region Constructor
 
@@ -15,12 +15,29 @@ namespace hbulens.Exam70487.Common
 
         }
 
-        public Customer(string name)
+        public Customer(string firstName, string lastName)
         {
-            this.Name = name;
+            this.FirstName = firstName;
+            this.LastName = lastName;
         }
 
         #endregion Constructor
+
+        #region Properties
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+      
+        public string Name
+        {
+            get
+            {
+                return string.Format("{0} {1}", this.FirstName, this.LastName);
+            }
+        }
+
+        #endregion Properties
 
         #region Methods
 
@@ -29,17 +46,16 @@ namespace hbulens.Exam70487.Common
             result = null;
 
             var parts = s.Split(',');
-            if (parts.Length != 2)
+            if (parts.Length != 3)
             {
                 return false;
             }
 
             int id = 0;
-            string name = "";
 
-            if (int.TryParse(parts[0], out id) && parts[1] != null)
+            if (int.TryParse(parts[0], out id) && parts[1] != null && parts[2] != null)
             {
-                result = new Customer() { Id = id, Name = name };
+                result = new Customer() { Id = id, FirstName = parts[1], LastName = parts[2] };
                 return true;
             }
             return false;

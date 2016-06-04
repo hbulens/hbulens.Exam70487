@@ -1,0 +1,32 @@
+{
+  "name": "grid-list",
+  "version": "0.1.0",
+  "homepage": "https://github.com/hootsuite/grid",
+  "description": "Drag and drop library for a two-dimensional resizable and responsive list of items",
+  "main": [
+    "src/gridList.js",
+    "src/jquery.gridList.js"
+  ],
+  "keywords": [
+    "grid",
+    "drag and drop",
+    "resizable",
+    "reponsive"
+  ],
+  "ignore": [
+    "node_modules",
+    "demo",
+    "spec",
+    "index.html"
+  ],
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "dcd6c244619a8ec54786e61befbd01379752bd37"
+  },
+  "_source": "https://github.com/ubervu/grid.git",
+  "_target": "0.1.0",
+  "_originalSource": "grid-list",
+  "_direct": true
+}

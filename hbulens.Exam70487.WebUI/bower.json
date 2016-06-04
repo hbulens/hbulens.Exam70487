@@ -5,7 +5,9 @@
     "bootstrap": "3.3.6",
     "jquery": "2.2.0",
     "jquery-validation": "1.14.0",
-    "jquery-validation-unobtrusive": "3.2.6"
+    "jquery-validation-unobtrusive": "3.2.6",
+    "grid-list": "0.1.0",
+    "angular": "~1.5.6"
   },
   "resolutions": {
     "bootstrap": "3.3.6"
