@@ -6,14 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace hbulens.Exam70487.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class CustomersController : Controller
     {
         public IActionResult Index()
-        {
-            return View();
-        }
- 
-        public IActionResult Error()
         {
             return View();
         }
