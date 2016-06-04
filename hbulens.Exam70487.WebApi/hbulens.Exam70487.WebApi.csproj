@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Binders\CustomerModelBinder.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Converters\CustomerConverter.cs" />
     <Compile Include="Formatters\CsvFormatter.cs" />
     <Compile Include="Program.cs" />
@@ -100,6 +101,11 @@
       <Project>{b7e2e5a9-a358-4de1-ba1a-e7d96a61f6c3}</Project>
       <Name>hbulens.Exam70487.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Media\polina.webm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
