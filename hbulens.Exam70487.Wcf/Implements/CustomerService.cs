@@ -30,7 +30,7 @@ namespace hbulens.Exam70487.Wcf
         /// <returns></returns>
         public IEnumerable<Customer> Get()
         {
-            return new List<Customer>() { new Customer("Donald Trump") { } };
+            return new List<Customer>() { new Customer("Donald","Trump") { } };
         }
 
         #endregion Methods        
