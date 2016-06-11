@@ -33,6 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
       <Private>True</Private>
@@ -58,6 +66,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -100,6 +109,14 @@
     <ProjectReference Include="..\hbulens.Exam70487.Common\hbulens.Exam70487.Common.csproj">
       <Project>{b7e2e5a9-a358-4de1-ba1a-e7d96a61f6c3}</Project>
       <Name>hbulens.Exam70487.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\hbulens.Exam70487.Core\hbulens.Exam70487.Core.csproj">
+      <Project>{B292D5E1-E57E-49E2-B0D9-6467568FCA8B}</Project>
+      <Name>hbulens.Exam70487.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\hbulens.Exam70487.Repositories\hbulens.Exam70487.Repositories.csproj">
+      <Project>{F33DF655-6770-4745-9901-F15F8064BFE6}</Project>
+      <Name>hbulens.Exam70487.Repositories</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

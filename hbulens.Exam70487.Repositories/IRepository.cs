@@ -11,7 +11,7 @@ namespace hbulens.Exam70487.Repositories
     /// Common data access interface
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IRepository<T>
+    public interface IRepository<T> : IDisposable
     {
         IEnumerable<T> Get();
         IEnumerable<T> Get(Expression<Func<T, bool>> filter);

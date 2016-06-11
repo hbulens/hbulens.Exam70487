@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Services.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace hbulens.Exam70487.Common
 {
+    [DataServiceKey("Id")]
     public class Customer : Item
     {
         #region Constructor
@@ -27,8 +29,8 @@ namespace hbulens.Exam70487.Common
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-      
+        public DateTime? DateOfBirth { get; set; }
+
         public string Name
         {
             get

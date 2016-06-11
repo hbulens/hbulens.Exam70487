@@ -1,4 +1,6 @@
 ﻿using hbulens.Exam70487.Common;
+using hbulens.Exam70487.Core;
+using hbulens.Exam70487.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,18 +30,10 @@ namespace hbulens.Exam70487.WebApi.Controllers
         [HttpGet]
         public IEnumerable<Customer> Get()
         {
-            return new List<Customer>()
+            using (IRepository<Customer> customerRepository = new EFRepository<Customer>(new ExamContext()))
             {
-                new Customer("Donald", "Trump") {},
-                new Customer("Hillary", "Clinton") {},
-                new Customer("Barack", "Obama") {},
-                new Customer("Deez", "Nuts") {},
-                new Customer("Bernie", "Sanders") {},
-                new Customer("George", "Bush") {},
-                new Customer("Bill", "Clinton") {},
-                new Customer("Franklin", "Roosevelt") {},
-                new Customer("Benjamin", "Franklin") {}
-            };
+                return customerRepository.Get();
+            }
         }
 
         #endregion Methods
