@@ -21,8 +21,20 @@ namespace hbulens.Exam70487.WebApi.Controllers
         /// <returns></returns>
         public HttpResponseMessage Get(string filename, string ext)
         {
+            IVideoStream video = default(IVideoStream);
+
+            // *************************************************************************************************************************
+            // If BLOB is not activated, let the code below comment
+            // *************************************************************************************************************************
             string startupPath = Path.Combine(Environment.CurrentDirectory, "Media");
-            VideoStream video = new VideoStream(startupPath, filename, ext);
+            video = new LocalVideoStream(startupPath, filename, ext);
+
+            // *************************************************************************************************************************
+            // If you want to use BLOB storage, comment the code above and uncomment the code below
+            // NOTE: you may have to change the URL of the file - depending on your setup in the BLOB project
+            // *************************************************************************************************************************
+            //string fileUri = "http://127.0.0.1:10000/devstoreaccount1/democontainerblockblob/polina.webm";
+            //video = new RemoteVideoStream(new Uri(fileUri));
 
             HttpResponseMessage response = Request.CreateResponse();
             response.Content = new PushStreamContent((x, y, z) => video.WriteToStream(x), new MediaTypeHeaderValue("video/" + ext));

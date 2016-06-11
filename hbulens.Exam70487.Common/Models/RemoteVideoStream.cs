@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace hbulens.Exam70487.Common.Models
 {
-    public class VideoStream
+    public class RemoteVideoStream : IVideoStream
     {
         #region Constructor
 
-        public VideoStream(string path, string filename, string ext)
+        public RemoteVideoStream(Uri uri)
         {
-            _filename = Path.Combine(path, filename + "." + ext);
+            this._uri = uri;
         }
 
         #endregion Constructor
 
         #region Properties
 
-        private readonly string _filename;
+        private readonly Uri _uri;
 
         #endregion Properties
 
@@ -36,18 +36,20 @@ namespace hbulens.Exam70487.Common.Models
         {
             try
             {
-                byte[] buffer = new byte[65536];
-
-                using (FileStream video = File.Open(_filename, FileMode.Open, FileAccess.Read))
+                using (WebClient webClient = new WebClient())
                 {
-                    var length = (int)video.Length;
-                    var bytesRead = 1;
-
-                    while (length > 0 && bytesRead > 0)
+                    byte[] buffer = webClient.DownloadData(this._uri);
+                    using (MemoryStream mem = new MemoryStream(buffer))
                     {
-                        bytesRead = await video.ReadAsync(buffer, 0, Math.Min(length, buffer.Length));
-                        await outputStream.WriteAsync(buffer, 0, bytesRead);
-                        length -= bytesRead;
+                        var length = (int)mem.Length;
+                        var bytesRead = 1;
+
+                        while (length > 0 && bytesRead > 0)
+                        {
+                            bytesRead = await mem.ReadAsync(buffer, 0, Math.Min(length, buffer.Length));
+                            await outputStream.WriteAsync(buffer, 0, bytesRead);
+                            length -= bytesRead;
+                        }                       
                     }
                 }
             }

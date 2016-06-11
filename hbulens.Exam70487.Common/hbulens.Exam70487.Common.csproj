@@ -45,7 +45,9 @@
     <Compile Include="Models\Base\Entity.cs" />
     <Compile Include="Models\Base\Item.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\VideoStream.cs" />
+    <Compile Include="Models\IVideoStream.cs" />
+    <Compile Include="Models\RemoteVideoStream.cs" />
+    <Compile Include="Models\LocalVideoStream.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
