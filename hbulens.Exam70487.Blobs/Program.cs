@@ -71,10 +71,6 @@ namespace hbulens.Exam70487.BlobsSample
             Console.WriteLine("Block Blob Sample");
             BasicStorageBlockBlobOperationsAsync().Wait();
 
-            // Page blob basics
-            //Console.WriteLine("\nPage Blob Sample");
-            //BasicStoragePageBlobOperationsAsync().Wait();
-
             Console.WriteLine("Press any key to exit");
             Console.ReadLine();
         }
@@ -130,81 +126,17 @@ namespace hbulens.Exam70487.BlobsSample
 
             // Download a blob to your file system
             Console.WriteLine("4. Download Blob from {0}", blockBlob.Uri.AbsoluteUri);
-            //await blockBlob.DownloadToFileAsync(string.Format("./CopyOf{0}", ImageToUpload), FileMode.Create);
+            await blockBlob.DownloadToFileAsync(string.Format("./CopyOf{0}", ImageToUpload), FileMode.Create);
 
-            // Clean up after the demo 
+            // Clean up blob
             Console.WriteLine("5. Delete block Blob");
-            //await blockBlob.DeleteAsync();
+            await blockBlob.DeleteAsync();
 
-            // When you delete a container it could take several seconds before you can recreate a container with the same
-            // name - hence to enable you to run the demo in quick succession the container is not deleted. If you want 
-            // to delete the container uncomment the line of code below. 
-            //Console.WriteLine("6. Delete Container");
-            //await container.DeleteAsync();
+            // Clean up container
+            Console.WriteLine("6. Delete Container");
+            await container.DeleteAsync();
         }
 
-        /// <summary>
-        /// Basic operations to work with page blobs
-        /// </summary>
-        /// <returns>Task</returns>
-        private static async Task BasicStoragePageBlobOperationsAsync()
-        {
-            const string PageBlobName = "samplepageblob";
-
-            // Retrieve storage account information from connection string
-            // How to create a storage connection string - http://msdn.microsoft.com/en-us/library/azure/ee758697.aspx
-            CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-            // Create a blob client for interacting with the blob service.
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-            // Create a container for organizing blobs within the storage account.
-            Console.WriteLine("1. Creating Container");
-            CloudBlobContainer container = blobClient.GetContainerReference("democontainerpageblob");
-            await container.CreateIfNotExistsAsync();
-
-            // Create a page blob in the newly created container.  
-            Console.WriteLine("2. Creating Page Blob");
-            CloudPageBlob pageBlob = container.GetPageBlobReference(PageBlobName);
-            await pageBlob.CreateAsync(512 * 2 /*size*/); // size needs to be multiple of 512 bytes
-
-            // Write to a page blob 
-            Console.WriteLine("2. Write to a Page Blob");
-            byte[] samplePagedata = new byte[512];
-            Random random = new Random();
-            random.NextBytes(samplePagedata);
-            await pageBlob.UploadFromByteArrayAsync(samplePagedata, 0, samplePagedata.Length);
-
-            // List all blobs in this container. Because a container can contain a large number of blobs the results 
-            // are returned in segments (pages) with a maximum of 5000 blobs per segment. You can define a smaller size
-            // using the maxResults parameter on ListBlobsSegmentedAsync.
-            Console.WriteLine("3. List Blobs in Container");
-            BlobContinuationToken token = null;
-            do
-            {
-                BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(token);
-                token = resultSegment.ContinuationToken;
-                foreach (IListBlobItem blob in resultSegment.Results)
-                {
-                    // Blob type will be CloudBlockBlob, CloudPageBlob or CloudBlobDirectory
-                    Console.WriteLine("{0} (type: {1}", blob.Uri, blob.GetType());
-                }
-            } while (token != null);
-
-            // Read from a page blob
-            Console.WriteLine("4. Read from a Page Blob");
-            int bytesRead = await pageBlob.DownloadRangeToByteArrayAsync(samplePagedata, 0, 0, samplePagedata.Count());
-
-            // Clean up after the demo 
-            Console.WriteLine("5. Delete page Blob");
-            await pageBlob.DeleteAsync();
-
-            // When you delete a container it could take several seconds before you can recreate a container with the same
-            // name - hence to enable you to run the demo in quick succession the container is not deleted. If you want 
-            // to delete the container uncomment the line of code below. 
-            //Console.WriteLine("6. Delete Container");
-            //await container.DeleteAsync();
-        }
 
         /// <summary>
         /// Validates the connection string information in app.config and throws an exception if it looks like 

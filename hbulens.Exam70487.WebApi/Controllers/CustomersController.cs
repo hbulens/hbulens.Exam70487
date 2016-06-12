@@ -1,5 +1,6 @@
 ﻿using hbulens.Exam70487.Common;
 using hbulens.Exam70487.Core;
+using hbulens.Exam70487.Core.Repositories;
 using hbulens.Exam70487.Repositories;
 using System;
 using System.Collections.Generic;
@@ -30,10 +31,25 @@ namespace hbulens.Exam70487.WebApi.Controllers
         [HttpGet]
         public IEnumerable<Customer> Get()
         {
+            IEnumerable<Customer> customers = default(IEnumerable<Customer>);
+
+            // *************************************************************************************************************************
+            // The ADO.NET way
+            // *************************************************************************************************************************
+            using (IRepository<Customer> customerRepository = new CustomerRepository("ExamContext"))
+            {
+                customers = customerRepository.Get().ToList();
+            }
+
+            // *************************************************************************************************************************
+            // The Entity Framework way
+            // *************************************************************************************************************************
             using (IRepository<Customer> customerRepository = new EFRepository<Customer>(new ExamContext()))
             {
-                return customerRepository.Get();
+                customers = customerRepository.Get().ToList();
             }
+
+            return customers;
         }
 
         #endregion Methods
