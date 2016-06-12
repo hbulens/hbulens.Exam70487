@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace hbulens.Exam70487.Repositories
 {
-    public class EFRepository<T> : IRepository<T> where T : class
+    public class EfRepository<T> : IRepository<T> where T : class
     {
         #region Constructor
 
-        public EFRepository(DbContext ctx)
+        public EfRepository(DbContext ctx)
         {
             this.Context = ctx;
         }
@@ -43,7 +43,5 @@ namespace hbulens.Exam70487.Repositories
         }
 
         #endregion Methods
-
-
     }
 }

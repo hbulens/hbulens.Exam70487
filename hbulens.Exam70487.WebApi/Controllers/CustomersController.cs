@@ -44,7 +44,7 @@ namespace hbulens.Exam70487.WebApi.Controllers
             // *************************************************************************************************************************
             // The Entity Framework way
             // *************************************************************************************************************************
-            using (IRepository<Customer> customerRepository = new EFRepository<Customer>(new ExamContext()))
+            using (IRepository<Customer> customerRepository = new EfRepository<Customer>(new ExamContext()))
             {
                 customers = customerRepository.Get().ToList();
             }

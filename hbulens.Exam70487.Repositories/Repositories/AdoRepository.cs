@@ -16,8 +16,8 @@ namespace hbulens.Exam70487.Repositories
 
         public AdoRepository(string connection)
         {
-            string conectionString = ConfigurationManager.ConnectionStrings[connection].ConnectionString;
-            this.Connection = new SqlConnection(conectionString);
+            string connectionString = ConfigurationManager.ConnectionStrings[connection].ConnectionString;
+            this.Connection = new SqlConnection(connectionString);
         }
 
         public AdoRepository(string connection, string table) : this(connection)
@@ -66,7 +66,21 @@ namespace hbulens.Exam70487.Repositories
         /// <returns></returns>
         public IEnumerable<T> Get(Expression<Func<T, bool>> filter)
         {
-            throw new NotImplementedException();
+            this.Connection.Open();
+
+            using (SqlCommand command = this.Connection.CreateCommand())
+            {
+                command.CommandText = string.Format("SELECT * FROM {0} WHERE {1}", this.Table, filter.ToString<T>());
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        yield return this.Map(reader);
+                    }
+                }
+            }
+
+            this.Connection.Close();
         }
 
         /// <summary>
