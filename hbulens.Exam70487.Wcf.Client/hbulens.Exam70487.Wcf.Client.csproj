@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -46,8 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Inspectors\MyOperationBehavior.cs" />
-    <Compile Include="Inspectors\ParameterInspector.cs" />
+    <Compile Include="Inspectors\Message\MessageInspector.cs" />
+    <Compile Include="Inspectors\Message\MessageVerificationBehavior.cs" />
+    <Compile Include="Inspectors\Message\MessageVerificationConfigurationSection.cs" />
+    <Compile Include="Inspectors\Parameter\MyOperationBehavior.cs" />
+    <Compile Include="Inspectors\Parameter\ParameterInspector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\CustomerService\Reference.cs">
