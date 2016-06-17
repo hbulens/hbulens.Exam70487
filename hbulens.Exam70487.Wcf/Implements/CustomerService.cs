@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using hbulens.Exam70487.Common;
+using System.ServiceModel;
 
 namespace hbulens.Exam70487.Wcf
 {
+    [ServiceBehavior(Namespace = "https://github.com/hbulens/Exam70487")]
     public class CustomerService : ICustomerService
     {
         #region Constructor

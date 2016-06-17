@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:8080/Customers" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Customers.disco" MetadataType="Disco" ID="ed98fe46-056f-4b7a-a8d8-6ab7b11e64d3" SourceId="1" SourceUrl="http://localhost:8080/Customers?disco" />
     <MetadataFile FileName="Customers.xsd" MetadataType="Schema" ID="85eea671-c471-4663-8f1c-a33e44fe5467" SourceId="1" SourceUrl="http://localhost:8080/Customers?xsd=xsd1" />
+    <MetadataFile FileName="Customers.disco" MetadataType="Disco" ID="ed98fe46-056f-4b7a-a8d8-6ab7b11e64d3" SourceId="1" SourceUrl="http://localhost:8080/Customers?disco" />
+    <MetadataFile FileName="Customers2.xsd" MetadataType="Schema" ID="e2b741f9-13b7-4e54-a3e5-de23a2d9ea85" SourceId="1" SourceUrl="http://localhost:8080/Customers?xsd=xsd0" />
     <MetadataFile FileName="CustomerService.wsdl" MetadataType="Wsdl" ID="4eb5257a-a943-470c-bb41-2f3735362f73" SourceId="1" SourceUrl="http://localhost:8080/Customers?wsdl" />
     <MetadataFile FileName="Customers1.xsd" MetadataType="Schema" ID="5eed7d95-47d9-4ee2-a9ee-e1434564c8d6" SourceId="1" SourceUrl="http://localhost:8080/Customers?xsd=xsd2" />
-    <MetadataFile FileName="Customers2.xsd" MetadataType="Schema" ID="e2b741f9-13b7-4e54-a3e5-de23a2d9ea85" SourceId="1" SourceUrl="http://localhost:8080/Customers?xsd=xsd0" />
+    <MetadataFile FileName="Customers.wsdl" MetadataType="Wsdl" ID="2ef79485-79ff-4064-9a3d-e040679ab7c6" SourceId="1" SourceUrl="http://localhost:8080/Customers?wsdl=wsdl0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
