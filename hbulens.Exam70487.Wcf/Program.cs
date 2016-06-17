@@ -18,7 +18,7 @@ namespace hbulens.Exam70487.Wcf
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            bool useAppConfig = Convert.ToBoolean(ConfigurationManager.AppSettings["UseAppConfig"]);            
+            bool useAppConfig = Convert.ToBoolean(ConfigurationManager.AppSettings["UseAppConfig"]);
             using (ServiceHost host = new ServiceHost(typeof(CustomerService)))
             {
                 BasicHttpBinding basicHttpBinding = new BasicHttpBinding();
@@ -27,8 +27,10 @@ namespace hbulens.Exam70487.Wcf
                 host.AddServiceEndpoint(typeof(ICustomerService), basicHttpBinding, baseHttpAddress);
                 host.AddServiceEndpoint(typeof(ICustomerService), wsHttpBinding, baseHttpAddress + "/ws");
 
+                // If this flag is set to false, make sure to comment out this line in app.config:
+                // <serviceMetadata httpGetEnabled="true" /> 
                 if (!useAppConfig)
-                {                   
+                {
                     // Enable metadata publishing.
                     ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
                     smb.HttpGetEnabled = true;
