@@ -21,7 +21,7 @@ namespace hbulens.Exam70487.Wcf
             bool useAppConfig = Convert.ToBoolean(ConfigurationManager.AppSettings["UseAppConfig"]);
             using (ServiceHost host = new ServiceHost(typeof(CustomerService)))
             {
-                BasicHttpBinding basicHttpBinding = new BasicHttpBinding();
+                BasicHttpBinding basicHttpBinding = new BasicHttpBinding(BasicHttpSecurityMode.None);
                 WSHttpBinding wsHttpBinding = new WSHttpBinding();
                 Uri baseHttpAddress = new Uri("http://localhost:8080/Customers");
                 host.AddServiceEndpoint(typeof(ICustomerService), basicHttpBinding, baseHttpAddress);
