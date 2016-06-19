@@ -32,7 +32,7 @@ namespace hbulens.Exam70487.WebApi.Controllers
         #region Methods
 
         [HttpGet]
-        [DebugActionWebApiFilter]     
+        [DebugActionWebApiFilter]
         public IEnumerable<Customer> Get()
         {
             IEnumerable<Customer> customers = default(IEnumerable<Customer>);
@@ -40,7 +40,7 @@ namespace hbulens.Exam70487.WebApi.Controllers
             // *************************************************************************************************************************
             // The ADO.NET way
             // *************************************************************************************************************************
-            using (IRepository<Customer> customerRepository = new CustomerRepository("ExamContext"))
+            using (IReadRepository<Customer> customerRepository = new CustomerRepository(nameof(ExamContext)))
             {
                 customers = customerRepository.Get();
             }
@@ -61,13 +61,40 @@ namespace hbulens.Exam70487.WebApi.Controllers
             return customers.ToList();
         }
 
+        [HttpPost]
+        [DebugActionWebApiFilter]
+        public Customer Post(Customer item)
+        {
+            return this.CustomerRepository.Create(item);
+        }
+
+        [HttpPut]
+        [DebugActionWebApiFilter]
+        public Customer Put(Customer item)
+        {
+            return this.CustomerRepository.Update(item);
+        }
+
+        [HttpPatch]
+        [DebugActionWebApiFilter]
+        public Customer Patch(Customer item)
+        {
+            return this.CustomerRepository.Update(item);
+        }
+
+        [HttpDelete]
+        [DebugActionWebApiFilter]
+        public Customer Delete(Customer item)
+        {
+            return this.CustomerRepository.Delete(item);
+        }
+
         protected override void Dispose(bool disposing)
         {
             this.CustomerRepository.Dispose();
             base.Dispose(disposing);
         }
+
         #endregion Methods
     }
-
-
 }

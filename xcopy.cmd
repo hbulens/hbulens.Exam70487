@@ -1,0 +1,1 @@
+xcopy /I /S /E C:\Users\hendr\Downloads C:\Users\hendr\Pictures

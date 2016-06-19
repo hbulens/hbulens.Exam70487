@@ -38,7 +38,6 @@ namespace hbulens.Exam70487.WebApi
             // * Microsoft.AspNet.Cors
             // To activate this host, comment out the code above.
             // *************************************************************************************************************************           
-
             HttpSelfHostConfiguration configuration = new HttpSelfHostConfiguration(baseAddress);
             configuration.Routes.MapHttpRoute(
                 name: "DefaultApi",
@@ -47,14 +46,13 @@ namespace hbulens.Exam70487.WebApi
             );
             configuration.MaxReceivedMessageSize = 1024;
             configuration.MaxBufferSize = 1024;
-            configuration.MessageHandlers.Add(new CustomHeaderHandler());
-            var enableCorsAttribute = new EnableCorsAttribute("*", "*", "*")
+            configuration.MessageHandlers.Add(new CustomHeaderHandler());          
+            configuration.EnableCors(new EnableCorsAttribute("*", "*", "*")
             {
                 SupportsCredentials = true
-            };
-            configuration.EnableCors(enableCorsAttribute);
+            });
 
-            using (var server = new HttpSelfHostServer(configuration))
+            using (HttpSelfHostServer server = new HttpSelfHostServer(configuration))
             {
                 Console.WriteLine("Web API is running at " + baseAddress);
                 Console.WriteLine("Press any key to exit...");

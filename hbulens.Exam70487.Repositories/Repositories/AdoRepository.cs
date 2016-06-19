@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace hbulens.Exam70487.Repositories
 {
-    public abstract class AdoRepository<T> : IRepository<T>
+    public abstract class AdoRepository<T> : IReadRepository<T>
     {
         #region Constructor
 
@@ -68,7 +68,7 @@ namespace hbulens.Exam70487.Repositories
         {
             this.Connection.Open();
 
-            using (SqlCommand command = this.Connection.CreateCommand())
+            using (IDbCommand command = this.Connection.CreateCommand())
             {
                 command.CommandText = string.Format("SELECT * FROM {0} WHERE {1}", this.Table, filter.ToString<T>());
                 using (var reader = command.ExecuteReader())
@@ -82,10 +82,7 @@ namespace hbulens.Exam70487.Repositories
 
             this.Connection.Close();
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
+       
         public void Dispose()
         {
             this.Connection.Dispose();

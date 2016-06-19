@@ -39,6 +39,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web API", "Web API", "{D6DE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hbulens.Exam70487.WebApi.Client", "hbulens.Exam70487.WebApi.Client\hbulens.Exam70487.WebApi.Client.csproj", "{956B9804-1572-4948-BEC3-C940E4FD6C7E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B5CB6134-FEA0-4A5E-8877-3C1E3F7860CD}"
+	ProjectSection(SolutionItems) = preProject
+		xcopy.cmd = xcopy.cmd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

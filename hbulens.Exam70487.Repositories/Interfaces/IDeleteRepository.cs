@@ -11,7 +11,8 @@ namespace hbulens.Exam70487.Repositories
     /// Common data access interface
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IRepository<T> : IReadRepository<T>, ICreateRepository<T>, IEditRepository<T>, IDeleteRepository<T>
-    {
+    public interface IDeleteRepository<T> : IDisposable
+    {       
+        T Delete(T item);
     }
 }
