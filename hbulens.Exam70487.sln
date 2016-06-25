@@ -44,6 +44,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		xcopy.cmd = xcopy.cmd
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hbulens.Exam70487.WcfData.Client", "hbulens.Exam70487.WcfData.Client\hbulens.Exam70487.WcfData.Client.csproj", "{039EC34F-D05C-4AD2-986A-BB6C8F1A0624}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,6 +110,10 @@ Global
 		{956B9804-1572-4948-BEC3-C940E4FD6C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{956B9804-1572-4948-BEC3-C940E4FD6C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{956B9804-1572-4948-BEC3-C940E4FD6C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{039EC34F-D05C-4AD2-986A-BB6C8F1A0624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{039EC34F-D05C-4AD2-986A-BB6C8F1A0624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{039EC34F-D05C-4AD2-986A-BB6C8F1A0624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{039EC34F-D05C-4AD2-986A-BB6C8F1A0624}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,5 +130,6 @@ Global
 		{6498E995-C760-4920-8FF8-4A3EE3842D20} = {78DF53A0-E148-419B-95F1-F2586B21AD3C}
 		{5A5F7C07-3D42-437B-B727-B67B09FC7CF7} = {61527D7C-2768-49EF-9743-888704F4A5A0}
 		{956B9804-1572-4948-BEC3-C940E4FD6C7E} = {D6DE432E-C5E5-41FF-A02D-51C6C021BC49}
+		{039EC34F-D05C-4AD2-986A-BB6C8F1A0624} = {61527D7C-2768-49EF-9743-888704F4A5A0}
 	EndGlobalSection
 EndGlobal
