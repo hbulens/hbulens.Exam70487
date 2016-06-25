@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel.Web;
+using System.ServiceModel;
+using System.ServiceModel.Description;
 
 namespace hbulens.Exam70487.WcfData
 {
@@ -17,6 +19,19 @@ namespace hbulens.Exam70487.WcfData
 
             using (DataServiceHost host = new DataServiceHost(typeof(ExamDataService), baseAddresses))
             {
+                ServiceEndpoint endPoint = new ServiceEndpoint(ContractDescription.GetContract(typeof(ExamDataService)))
+                {
+                    Name = "default",
+                    Address = new EndpointAddress(baseAddress),
+                    Contract = ContractDescription.GetContract(typeof(IRequestHandler)),
+                    Binding = new WebHttpBinding()
+                };
+
+                // Add extra behavior to enable CORS
+                endPoint.EndpointBehaviors.Add(new EnableCrossOriginResourceSharingBehavior());
+
+                host.AddServiceEndpoint(endPoint);
+
                 // Open the DataServiceHost to start listening for messages. Since
                 // no endpoints are explicitly configured, the runtime will create
                 // one endpoint per base address for each service contract implemented

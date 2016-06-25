@@ -7,7 +7,7 @@
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />    
+        <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -17,7 +17,7 @@
     </environment>
 </head>
 <body>
-    <a class="github-fork-ribbon" href="https://github.com/hbulens/Exam70487" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
+    <a class="github-fork-ribbon hidden-xs" href="https://github.com/hbulens/Exam70487" target="_blank" title="Fork me on GitHub">Fork me on GitHub</a>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -33,8 +33,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-controller="Customers" asp-action="Index">Customers</a></li>
-                    <li><a asp-controller="Orders" asp-action="Index">Orders</a></li>
+                    <li><a asp-controller="Customers" asp-action="WebApi">Customers Web API</a></li>
+                    <li><a asp-controller="Customers" asp-action="WCF">Customers WCF Data Service</a></li>
+                    <li><a asp-controller="Orders" asp-action="Index">Orders Web API</a></li>
                     <li><a asp-controller="Videos" asp-action="Index">Videos</a></li>
                 </ul>
             </div>

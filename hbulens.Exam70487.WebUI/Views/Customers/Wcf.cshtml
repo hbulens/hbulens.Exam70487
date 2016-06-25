@@ -1,0 +1,77 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <h2>Information <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></h2>
+        <p>This page shows how jQuery AJAX operation to the WCF Data Service renders a list dynamically using AngularJS.</p>
+    </div>
+</div>
+
+<div class="container" ng-app="customersApp">
+    <div class="well well-sm">
+        <strong>Category Title</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-th-list">
+                </span>List
+            </a> <a href="#" id="grid" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-th"></span>Grid
+            </a>
+        </div>
+    </div>
+    <div ng-controller="CustomerController">
+        <div id="products" class="row list-group">
+            <div class="item col-xs-4 col-lg-4" ng-repeat="customer in customers">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://lorempixel.com/400/250/" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            {{ customer.Name }}
+                        </h4>
+                        <p class="group inner list-group-item-text">
+                            Customer Info
+                        </p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000
+                                </p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="#">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/lib/angular/angular.js" type="text/javascript"></script>
+    <link href="~/css/grid-list.css" rel="stylesheet" />
+    <script src="~/lib/grid-list/src/gridList.js"></script>
+    <script src="~/lib/grid-list/src/jquery.gridList.js"></script>
+    <script type="text/javascript">
+    
+        var customersApp = angular.module('customersApp', []);
+        customersApp.controller('CustomerController', ['$scope', function ($scope) {
+            // Call Customer web api and accept xml
+            $.ajax({
+                type: "GET",
+                accepts: { "*": "application/json" },
+                url: 'http://localhost:8080/ExamDataService/Customers',
+                headers: {
+                },
+                success: function (response) {
+                    $scope.customers = response.d;
+                    $scope.$apply();
+
+                    $('#list').click(function (event) { event.preventDefault(); $('#products .item').addClass('list-group-item'); });
+                    $('#grid').click(function (event) { event.preventDefault(); $('#products .item').removeClass('list-group-item'); $('#products .item').addClass('grid-group-item'); });
+                }
+            });
+        }]);
+       
+    </script>
+}

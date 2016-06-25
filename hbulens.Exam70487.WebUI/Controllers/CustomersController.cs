@@ -8,7 +8,12 @@ namespace hbulens.Exam70487.WebUI.Controllers
 {
     public class CustomersController : Controller
     {
-        public IActionResult Index()
+        public IActionResult WebApi()
+        {
+            return View();
+        }
+
+        public IActionResult Wcf()
         {
             return View();
         }
