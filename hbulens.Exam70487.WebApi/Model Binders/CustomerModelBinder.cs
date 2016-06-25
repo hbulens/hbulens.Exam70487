@@ -10,7 +10,7 @@ using System.Web.Http.ValueProviders;
 
 namespace hbulens.Exam70487.WebApi
 {
-    class CustomerModelBinder : IModelBinder
+    public class CustomerModelBinder : IModelBinder
     {
         public bool BindModel(HttpActionContext actionContext, ModelBindingContext bindingContext)
         {

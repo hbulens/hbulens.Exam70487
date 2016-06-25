@@ -14,11 +14,11 @@ namespace hbulens.Exam70487.WebApi.Formatters
     /// <summary>
     /// Code based on http://www.asp.net/web-api/overview/formats-and-model-binding/media-formatters
     /// </summary>
-    internal class CsvFormatter : BufferedMediaTypeFormatter
+    internal class CustomerCsvFormatter : BufferedMediaTypeFormatter
     {
         #region Constructor
 
-        public CsvFormatter()
+        public CustomerCsvFormatter()
         {
             this.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/csv"));
         }

@@ -24,6 +24,7 @@ namespace hbulens.Exam70487.Core
         #region Properties
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         #endregion Properties
 
@@ -32,6 +33,7 @@ namespace hbulens.Exam70487.Core
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add<Customer>(new CustomerMap());
+            modelBuilder.Configurations.Add<Order>(new OrderMap());
         }
 
         #endregion Methods                

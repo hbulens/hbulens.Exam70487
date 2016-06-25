@@ -25,15 +25,18 @@ namespace hbulens.Exam70487.WebApi
             HttpConfiguration config = new HttpConfiguration();
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{action}/{id}", // Action segment was added to allow multiple actions with same HTTP Method
                 defaults: new { id = RouteParameter.Optional }
             );
 
             appBuilder.UseCors(CorsOptions.AllowAll);
             appBuilder.UseWebApi(config);
 
-            config.Formatters.Add(new CsvFormatter());
-           
+            // Add Formatters
+            config.Formatters.Add(new CustomerCsvFormatter());
+
+            // Add filters
+            config.Filters.Add(new GlobalExceptionFilter());
 
             // Dependency Injection
             ContainerBuilder builder = new ContainerBuilder();
@@ -47,7 +50,8 @@ namespace hbulens.Exam70487.WebApi
 
             IDependencyResolver resolver = new AutofacResolver(container);
             config.DependencyResolver = resolver;
-           
+
+            Logger.Setup();
         }
     }
 }

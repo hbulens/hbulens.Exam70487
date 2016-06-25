@@ -50,7 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF\CustomerMap.cs" />
+    <Compile Include="EF\Mapping\OrderMap.cs" />
+    <Compile Include="EF\Mapping\CustomerMap.cs" />
     <Compile Include="EF\ExamContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

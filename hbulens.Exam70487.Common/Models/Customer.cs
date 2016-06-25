@@ -46,14 +46,20 @@ namespace hbulens.Exam70487.Common
         public static bool TryParse(string s, out Customer result)
         {
             result = null;
+            int id = 0;
 
-            var parts = s.Split(',');
-            if (parts.Length != 3)
+            string[] parts = s.Split(',');
+
+            if (parts.Length == 1)
+            {
+                int.TryParse(parts[0], out id);
+                result = new Customer() { Id = id };
+                return true;
+            }
+            else if (parts.Length != 3)
             {
                 return false;
             }
-
-            int id = 0;
 
             if (int.TryParse(parts[0], out id) && parts[1] != null && parts[2] != null)
             {

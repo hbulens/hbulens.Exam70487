@@ -49,6 +49,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
       <Private>True</Private>
@@ -108,18 +112,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Binders\CustomerModelBinder.cs" />
+    <Compile Include="Model Binders\CustomerModelBinder.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Converters\CustomerConverter.cs" />
     <Compile Include="DI\AutofacResolver.cs" />
     <Compile Include="Extensions\CustomHeaderHandler.cs" />
     <Compile Include="Filters\DebugActionWebApiFilter.cs" />
-    <Compile Include="Formatters\CsvFormatter.cs" />
+    <Compile Include="Filters\GlobalExceptionFilter.cs" />
+    <Compile Include="Formatters\CustomerCsvFormatter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\Logger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
