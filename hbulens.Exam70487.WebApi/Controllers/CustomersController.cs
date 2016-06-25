@@ -5,6 +5,9 @@ using hbulens.Exam70487.Repositories;
 using hbulens.Exam70487.WebApi;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +19,10 @@ namespace hbulens.Exam70487.WebApi.Controllers
     {
         #region Constructor
 
+        /// <summary>
+        /// Use Dependency Injection to get the repository instance
+        /// </summary>
+        /// <param name="customerRepository"></param>
         public CustomersController(IRepository<Customer> customerRepository)
         {
             this.CustomerRepository = customerRepository;
@@ -30,7 +37,7 @@ namespace hbulens.Exam70487.WebApi.Controllers
         #endregion Properties
 
         #region Methods
-      
+
         [HttpGet]
         [DebugActionWebApiFilter]
         public IEnumerable<Customer> Get()
@@ -57,6 +64,28 @@ namespace hbulens.Exam70487.WebApi.Controllers
             // The DI way
             // *************************************************************************************************************************
             customers = this.CustomerRepository.Get();
+
+            // *************************************************************************************************************************
+            // The good old way of the ObjectContext
+            // *************************************************************************************************************************
+            if (this.CustomerRepository is EfRepository<Customer>)
+            {
+                // Use explicit conversion to get the DbContext from the repository without exposing the DbContext property as public
+                DbContext ctx = (DbContext)(EfRepository<Customer>)this.CustomerRepository;
+
+                // Use the adapter to get to the old ObjectContext type
+                IObjectContextAdapter adapter = (IObjectContextAdapter)ctx;
+                ObjectContext objectContext = adapter.ObjectContext;
+
+                // Create same query as the others with the ObjectContext directly
+                ObjectQuery<Customer> customersQuery = objectContext.CreateObjectSet<Customer>();
+
+                // Get the trace string of the objcect query
+                string query = customersQuery.ToTraceString();
+
+                customers = customersQuery;
+            }
+
 
             return customers.ToList();
         }
@@ -88,7 +117,7 @@ namespace hbulens.Exam70487.WebApi.Controllers
         {
             return this.CustomerRepository.Delete(item);
         }
-
+        
         protected override void Dispose(bool disposing)
         {
             this.CustomerRepository.Dispose();

@@ -22,6 +22,7 @@ namespace hbulens.Exam70487.Repositories
             this.Batch = saveInBatch;
         }
 
+
         #endregion Constructor
 
         #region Properties
@@ -82,6 +83,11 @@ namespace hbulens.Exam70487.Repositories
         public void Dispose()
         {
             this.Context.Dispose();
+        }
+        
+        public static explicit operator DbContext(EfRepository<T> repository)
+        {
+            return repository.Context;
         }
 
         #endregion Methods
