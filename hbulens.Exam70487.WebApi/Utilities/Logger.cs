@@ -36,7 +36,7 @@ namespace hbulens.Exam70487.WebApi
             memory.ActivateOptions();
             hierarchy.Root.AddAppender(memory);
 
-            hierarchy.Root.Level = Level.Info;
+            hierarchy.Root.Level = Level.Debug;
             hierarchy.Configured = true;
         }
     }

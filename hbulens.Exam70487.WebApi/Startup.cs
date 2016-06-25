@@ -32,11 +32,14 @@ namespace hbulens.Exam70487.WebApi
             appBuilder.UseCors(CorsOptions.AllowAll);
             appBuilder.UseWebApi(config);
 
-            // Add Formatters
+            // Add formatters
             config.Formatters.Add(new CustomerCsvFormatter());
 
             // Add filters
             config.Filters.Add(new GlobalExceptionFilter());
+
+            // Add message handlers
+            config.MessageHandlers.Add(new LoggingHandler());
 
             // Dependency Injection
             ContainerBuilder builder = new ContainerBuilder();

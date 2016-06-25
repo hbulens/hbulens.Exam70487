@@ -112,13 +112,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Message Handlers\LoggingHandler.cs" />
     <Compile Include="Model Binders\CustomerModelBinder.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Converters\CustomerConverter.cs" />
     <Compile Include="DI\AutofacResolver.cs" />
-    <Compile Include="Extensions\CustomHeaderHandler.cs" />
+    <Compile Include="Message Handlers\CustomHeaderHandler.cs" />
     <Compile Include="Filters\DebugActionWebApiFilter.cs" />
     <Compile Include="Filters\GlobalExceptionFilter.cs" />
     <Compile Include="Formatters\CustomerCsvFormatter.cs" />
