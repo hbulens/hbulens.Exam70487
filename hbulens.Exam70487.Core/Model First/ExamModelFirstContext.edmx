@@ -67,7 +67,7 @@
           <End Role="Customers" Type="Dime.Scheduler.Core.Models.Customer" Multiplicity="1" />
           <End Role="Orders" Type="Dime.Scheduler.Core.Models.Order" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="ExamModelFirstContext2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ExamModelFirstContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Dime.Scheduler.Core.Models.Customer" />
           <EntitySet Name="Orders" EntityType="Dime.Scheduler.Core.Models.Order" />
           <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
@@ -80,7 +80,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DimeSchedulerCoreModelsStoreContainer" CdmEntityContainer="ExamModelFirstContext2">
+        <EntityContainerMapping StorageEntityContainer="DimeSchedulerCoreModelsStoreContainer" CdmEntityContainer="ExamModelFirstContext">
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="Dime.Scheduler.Core.Models.Customer">
               <MappingFragment StoreEntitySet="Customers">

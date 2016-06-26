@@ -12,19 +12,18 @@ namespace hbulens.Exam70487.Core.Model_First
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class ExamModelFirstContext2 : DbContext
+
+    public partial class ExamModelFirstContext : DbContext
     {
-        public ExamModelFirstContext2()
-            : base("name=ExamModelFirstContext2")
+        public ExamModelFirstContext() : base("name=ExamModelFirstContext")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
     }
