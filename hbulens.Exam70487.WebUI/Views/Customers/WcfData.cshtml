@@ -1,7 +1,7 @@
 ﻿<div class="row">
     <div class="col-lg-12">
         <h2>Information <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></h2>
-        <p>This page shows how jQuery AJAX operation to the WCF Service renders a list dynamically using AngularJS.</p>
+        <p>This page shows how jQuery AJAX operation to the WCF Data Service renders a list dynamically using AngularJS.</p>
     </div>
 </div>
 
@@ -53,18 +53,18 @@
     <script src="~/lib/grid-list/src/gridList.js"></script>
     <script src="~/lib/grid-list/src/jquery.gridList.js"></script>
     <script type="text/javascript">
-
+    
         var customersApp = angular.module('customersApp', []);
         customersApp.controller('CustomerController', ['$scope', function ($scope) {
             // Call Customer web api and accept xml
             $.ajax({
                 type: "GET",
                 accepts: { "*": "application/json" },
-                url: 'http://localhost:8080/Customers/Get',
+                url: 'http://localhost:8080/ExamDataService/Customers',
                 headers: {
                 },
                 success: function (response) {
-                    $scope.customers = response;
+                    $scope.customers = response.d;
                     $scope.$apply();
 
                     $('#list').click(function (event) { event.preventDefault(); $('#products .item').addClass('list-group-item'); });
@@ -72,6 +72,6 @@
                 }
             });
         }]);
-
+       
     </script>
 }

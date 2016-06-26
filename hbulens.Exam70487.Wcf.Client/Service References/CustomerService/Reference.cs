@@ -115,13 +115,13 @@ namespace hbulens.Exam70487.Wcf.Client.CustomerService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomerService.ICustomerService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="https://github.com/hbulens/Exam70487", ConfigurationName="CustomerService.ICustomerService")]
     public interface ICustomerService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Get", ReplyAction="http://tempuri.org/ICustomerService/GetResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="https://github.com/hbulens/Exam70487/ICustomerService/Get", ReplyAction="https://github.com/hbulens/Exam70487/ICustomerService/GetResponse")]
         hbulens.Exam70487.Wcf.Client.CustomerService.Customer[] Get();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Get", ReplyAction="http://tempuri.org/ICustomerService/GetResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="https://github.com/hbulens/Exam70487/ICustomerService/Get", ReplyAction="https://github.com/hbulens/Exam70487/ICustomerService/GetResponse")]
         System.Threading.Tasks.Task<hbulens.Exam70487.Wcf.Client.CustomerService.Customer[]> GetAsync();
     }
     

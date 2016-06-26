@@ -30,12 +30,7 @@ namespace hbulens.Exam70487.WcfData
                 // Add extra behavior to enable CORS
                 endPoint.EndpointBehaviors.Add(new EnableCrossOriginResourceSharingBehavior());
 
-                host.AddServiceEndpoint(endPoint);
-
-                // Open the DataServiceHost to start listening for messages. Since
-                // no endpoints are explicitly configured, the runtime will create
-                // one endpoint per base address for each service contract implemented
-                // by the service.
+                host.AddServiceEndpoint(endPoint);            
                 host.Open();
 
                 Console.WriteLine("The service is ready at {0}", baseAddress);

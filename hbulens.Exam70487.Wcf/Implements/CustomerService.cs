@@ -8,7 +8,7 @@ using System.ServiceModel;
 
 namespace hbulens.Exam70487.Wcf
 {
-    [ServiceBehavior(Namespace = "https://github.com/hbulens/Exam70487")]
+    [ServiceBehavior]
     public class CustomerService : ICustomerService
     {
         #region Constructor

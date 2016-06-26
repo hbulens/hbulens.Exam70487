@@ -24,7 +24,6 @@ namespace hbulens.Exam70487.Wcf.Inspectors
         public void ApplyDispatchBehavior(ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.EndpointDispatcher endpointDispatcher)
         {
             MessageInspector inspector = new MessageInspector();
-
             endpointDispatcher.DispatchRuntime.MessageInspectors.Add(inspector);
         }
 

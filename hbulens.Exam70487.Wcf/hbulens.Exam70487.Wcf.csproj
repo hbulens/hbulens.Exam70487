@@ -37,6 +37,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,11 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\EnableCrossOriginResourceSharingBehavior.cs" />
     <Compile Include="Contracts\ICustomerService.cs" />
-    <Compile Include="Inspectors\Message\MessageVerificationBehavior.cs" />
-    <Compile Include="Inspectors\Message\MessageVerificationConfigurationSection.cs" />
+    <Compile Include="Behaviors\Message Verification\MessageVerificationBehavior.cs" />
+    <Compile Include="Behaviors\Message Verification\MessageVerificationConfigurationSection.cs" />
+    <Compile Include="Inspectors\Message\CustomHeaderMessageInspector.cs" />
     <Compile Include="Inspectors\Message\MessageInspector.cs" />
-    <Compile Include="Inspectors\Parameter\MyOperationBehavior.cs" />
+    <Compile Include="Behaviors\ParameterInspectorAttribute.cs" />
     <Compile Include="Inspectors\Parameter\ParameterInspector.cs" />
     <Compile Include="Implements\CustomerService.cs" />
     <Compile Include="Program.cs" />

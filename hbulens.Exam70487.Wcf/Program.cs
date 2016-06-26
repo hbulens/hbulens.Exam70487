@@ -21,10 +21,15 @@ namespace hbulens.Exam70487.Wcf
             bool useAppConfig = Convert.ToBoolean(ConfigurationManager.AppSettings["UseAppConfig"]);
             using (ServiceHost host = new ServiceHost(typeof(CustomerService)))
             {
-                BasicHttpBinding basicHttpBinding = new BasicHttpBinding(BasicHttpSecurityMode.None);
+                WebHttpBinding webHttpBinding = new WebHttpBinding();
                 WSHttpBinding wsHttpBinding = new WSHttpBinding();
                 Uri baseHttpAddress = new Uri("http://localhost:8080/Customers");
-                host.AddServiceEndpoint(typeof(ICustomerService), basicHttpBinding, baseHttpAddress);
+
+                // Create RESTful endpoint
+                ServiceEndpoint httpEndPoint = host.AddServiceEndpoint(typeof(ICustomerService), webHttpBinding, baseHttpAddress);
+                httpEndPoint.EndpointBehaviors.Add(new EnableCrossOriginResourceSharingBehavior());
+                httpEndPoint.Behaviors.Add(new WebHttpBehavior());
+
                 host.AddServiceEndpoint(typeof(ICustomerService), wsHttpBinding, baseHttpAddress + "/ws");
 
                 // If this flag is set to false, make sure to comment out this line in app.config:
@@ -38,10 +43,6 @@ namespace hbulens.Exam70487.Wcf
                     host.Description.Behaviors.Add(smb);
                 }
 
-                // Open the ServiceHost to start listening for messages. Since
-                // no endpoints are explicitly configured, the runtime will create
-                // one endpoint per base address for each service contract implemented
-                // by the service.
                 host.Open();
 
                 Console.WriteLine("The service is ready at {0}", baseHttpAddress);

@@ -17,5 +17,10 @@ namespace hbulens.Exam70487.WebUI.Controllers
         {
             return View();
         }
+
+        public IActionResult WcfData()
+        {
+            return View();
+        }
     }
 }
