@@ -42,6 +42,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,13 +52,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF\Mapping\OrderMap.cs" />
-    <Compile Include="EF\Mapping\CustomerMap.cs" />
-    <Compile Include="EF\ExamContext.cs" />
+    <Compile Include="Code First\Mapping\OrderMap.cs" />
+    <Compile Include="Code First\Mapping\CustomerMap.cs" />
+    <Compile Include="Code First\ExamCodeFirstContext.cs" />
+    <Compile Include="Model First\Customer.cs">
+      <DependentUpon>ExamModelFirstContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model First\ExamModelFirstContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExamModelFirstContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model First\ExamModelFirstContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExamModelFirstContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model First\ExamModelFirstContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExamModelFirstContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model First\Order.cs">
+      <DependentUpon>ExamModelFirstContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="Model First\ExamModelFirstContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ExamModelFirstContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model First\ExamModelFirstContext.edmx.diagram">
+      <DependentUpon>ExamModelFirstContext.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +94,21 @@
       <Project>{b7e2e5a9-a358-4de1-ba1a-e7d96a61f6c3}</Project>
       <Name>hbulens.Exam70487.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model First\ExamModelFirstContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ExamModelFirstContext.edmx</DependentUpon>
+      <LastGenOutput>ExamModelFirstContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model First\ExamModelFirstContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ExamModelFirstContext.edmx</DependentUpon>
+      <LastGenOutput>ExamModelFirstContext.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

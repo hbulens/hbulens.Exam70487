@@ -11,11 +11,11 @@ namespace hbulens.Exam70487.Core
     /// <summary>
     /// 
     /// </summary>
-    public class ExamContext : DbContext
+    public class ExamCodeFirstContext : DbContext
     {
         #region Constructor
 
-        public ExamContext()
+        public ExamCodeFirstContext()
         {
         }
 

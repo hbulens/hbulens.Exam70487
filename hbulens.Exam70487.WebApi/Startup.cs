@@ -45,7 +45,7 @@ namespace hbulens.Exam70487.WebApi
             ContainerBuilder builder = new ContainerBuilder();
 
             // Just register controllers and the resolve IRepository<T> to EFRepository<T> with 1 constructor parameter 
-            builder.RegisterType<ExamContext>().As<DbContext>();
+            builder.RegisterType<ExamCodeFirstContext>().As<DbContext>();
             builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 

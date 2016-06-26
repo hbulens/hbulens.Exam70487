@@ -14,15 +14,15 @@ namespace hbulens.Exam70487.WcfData.Client.DataService
 {
     
     /// <summary>
-    /// There are no comments for ExamContext in the schema.
+    /// There are no comments for ExamCodeFirstContext in the schema.
     /// </summary>
-    public partial class ExamContext : global::System.Data.Services.Client.DataServiceContext
+    public partial class ExamCodeFirstContext : global::System.Data.Services.Client.DataServiceContext
     {
         /// <summary>
-        /// Initialize a new ExamContext object.
+        /// Initialize a new ExamCodeFirstContext object.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public ExamContext(global::System.Uri serviceRoot) : 
+        public ExamCodeFirstContext(global::System.Uri serviceRoot) : 
                 base(serviceRoot, global::System.Data.Services.Common.DataServiceProtocolVersion.V2)
         {
             this.ResolveName = new global::System.Func<global::System.Type, string>(this.ResolveNameFromType);

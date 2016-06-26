@@ -12,7 +12,7 @@ namespace hbulens.Exam70487.WcfData.Client
         static void Main(string[] args)
         {
             Uri uri = new Uri("http://localhost:8080/ExamDataService");
-            ExamContext ctx = new ExamContext(uri);
+            ExamCodeFirstContext ctx = new ExamCodeFirstContext(uri);
 
             bool tryAgain = true;
             do

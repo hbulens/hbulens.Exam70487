@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace hbulens.Exam70487.WcfData
 {
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
-    public class ExamDataService : EntityFrameworkDataService<ExamContext>
+    public class ExamDataService : EntityFrameworkDataService<ExamCodeFirstContext>
     {
         public static void InitializeService(DataServiceConfiguration config)
         {

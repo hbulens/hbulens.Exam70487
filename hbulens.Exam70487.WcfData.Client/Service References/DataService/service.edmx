@@ -32,7 +32,7 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <EntityContainer Name="ExamContext" m:IsDefaultEntityContainer="true">
+      <EntityContainer Name="ExamCodeFirstContext" m:IsDefaultEntityContainer="true">
         <EntitySet Name="Customers" EntityType="hbulens.Exam70487.Core.Customer" />
         <EntitySet Name="Orders" EntityType="hbulens.Exam70487.Core.Order" />
         <AssociationSet Name="Order_Customer" Association="hbulens.Exam70487.Core.Order_Customer">

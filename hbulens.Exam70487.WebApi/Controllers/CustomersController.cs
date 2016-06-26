@@ -47,7 +47,7 @@ namespace hbulens.Exam70487.WebApi.Controllers
             // *************************************************************************************************************************
             // The ADO.NET way
             // *************************************************************************************************************************
-            using (IReadRepository<Customer> customerRepository = new CustomerRepository(nameof(ExamContext)))
+            using (IReadRepository<Customer> customerRepository = new CustomerRepository(nameof(ExamCodeFirstContext)))
             {
                 customers = customerRepository.Get();
             }
@@ -55,9 +55,17 @@ namespace hbulens.Exam70487.WebApi.Controllers
             // *************************************************************************************************************************
             // The Entity Framework way
             // *************************************************************************************************************************
-            using (IRepository<Customer> customerRepository = new EfRepository<Customer>(new ExamContext()))
+            using (IRepository<Customer> customerRepository = new EfRepository<Customer>(new ExamCodeFirstContext()))
             {
                 customers = customerRepository.Get();
+            }
+
+            // *************************************************************************************************************************
+            // The Model First Way
+            // *************************************************************************************************************************
+            using (IRepository<Core.Model_First.Customer> customerRepository = new EfRepository<Core.Model_First.Customer>(new Core.Model_First.ExamModelFirstContext()))
+            {
+                IEnumerable<Core.Model_First.Customer> customersFromModelFirst = customerRepository.Get();
             }
 
             // *************************************************************************************************************************
@@ -117,7 +125,7 @@ namespace hbulens.Exam70487.WebApi.Controllers
         {
             return this.CustomerRepository.Delete(item);
         }
-        
+
         protected override void Dispose(bool disposing)
         {
             this.CustomerRepository.Dispose();
