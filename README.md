@@ -17,7 +17,7 @@ You also need a SQL Server database to run the samples.
 ### Solution ###
 
 The solution is divided into several folders, therefore grouping it into logical sets of projects:
-- Azure: contains the assemblies that use the Windows Azure platofrm
+- Azure: contains the assemblies that use the Windows Azure platform
 - Utilities: assemblies supporting the other projects in the solution
 - WCF: projects hosting and consuming WCF Services and WCF Data Services
 - Web APi: projects hosting and consuming Web API services
@@ -36,4 +36,5 @@ Ultimately, there is an ASP.NET Core application that combines all these togethe
 
 ### Running the sample ###
 To run the sample, see the prerequisites. 
-There also is a SQL Server Data Tools project in the solution that contains the database schema for the application. Use the schema compare tool to update the schema. Finally, the post deployment script has some sample data that you can use.
+
+There is also a SQL Server Data Tools project in the solution that contains the database schema for the application. Use the schema compare tool to update the schema. Finally, the post deployment script has some sample data that you can use.
