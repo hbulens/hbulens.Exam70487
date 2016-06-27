@@ -21,5 +21,11 @@
     <DnxInvisibleContent Include="package.json" />
     <DnxInvisibleContent Include=".npmrc" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\hbulens.Exam70487.Cache\hbulens.Exam70487.Cache.csproj" />
+    <ProjectReference Include="..\hbulens.Exam70487.Common\hbulens.Exam70487.Common.csproj" />
+    <ProjectReference Include="..\hbulens.Exam70487.Core\hbulens.Exam70487.Core.csproj" />
+    <ProjectReference Include="..\hbulens.Exam70487.Repositories\hbulens.Exam70487.Repositories.csproj" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

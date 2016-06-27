@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -93,6 +94,10 @@
     <ProjectReference Include="..\hbulens.Exam70487.Common\hbulens.Exam70487.Common.csproj">
       <Project>{b7e2e5a9-a358-4de1-ba1a-e7d96a61f6c3}</Project>
       <Name>hbulens.Exam70487.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\hbulens.Exam70487.Repositories\hbulens.Exam70487.Repositories.csproj">
+      <Project>{f33df655-6770-4745-9901-f15f8064bfe6}</Project>
+      <Name>hbulens.Exam70487.Repositories</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

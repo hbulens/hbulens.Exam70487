@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "exports": {
+    "hbulens.Exam70487.Cache/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/hbulens.Exam70487.Cache.exe": {}
+      },
+      "runtime": {
+        "bin/Debug/hbulens.Exam70487.Cache.exe": {}
+      }
+    },
+    "hbulens.Exam70487.Common/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/hbulens.Exam70487.Common.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/hbulens.Exam70487.Common.dll": {}
+      }
+    },
+    "hbulens.Exam70487.Core/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/hbulens.Exam70487.Core.dll": {}
+      },
+      "runtime": {
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
+        "bin/Debug/hbulens.Exam70487.Core.dll": {}
+      }
+    },
+    "hbulens.Exam70487.Repositories/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/hbulens.Exam70487.Repositories.dll": {}
+      },
+      "runtime": {
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
+        "bin/Debug/hbulens.Exam70487.Repositories.dll": {}
+      }
+    }
+  }
+}

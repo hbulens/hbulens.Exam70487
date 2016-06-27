@@ -1,0 +1,122 @@
+﻿@model IEnumerable<hbulens.Exam70487.Common.Customer>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Information <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></h2>
+            <p>
+                Go to the chosen instance of the IVideoStream interface in the common project and set a breakpoint in the loop of the WriteToStream method.
+                Did you notice the video freezes until you hit F5 again?
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Create new cache item</h2>
+            <p>This is a sample web application that shows some of the features and concepts covered in the 70-487 exam.</p>
+
+            <div class="form-group">
+                <label for="email">First Name:</label>
+                <input type="text" id="fname">
+            </div>
+            <div class="form-group">
+                <label for="email">Last Name:</label>
+                <input type="text" id="lname">
+            </div>
+
+
+            <button type="button" id="createBtn">Create</button>
+        </div>
+        <div class="col-sm-6">
+            <h2>Delete cache item</h2>
+            <p>This is a sample web application that shows some of the features and concepts covered in the 70-487 exam.</p>
+
+            <div class="form-group">
+                <label for="email">First Name:</label>
+                <input type="text" id="d_fname">
+            </div>
+            <div class="form-group">
+                <label for="email">Last Name:</label>
+                <input type="text" id="d_lname">
+            </div>
+
+
+            <button type="button" id="deleteBtn">Delete</button>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Cache items</h2>
+            <table class="table table-striped">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var customer in this.Model)
+                    {
+                        <tr>
+                            <td>
+                                @customer.Name
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section scripts  {
+    <script type="text/javascript">
+        $('#createBtn').click(function (e) {
+            e.preventDefault();
+            var data = {
+                FirstName: $('#fname').val().trim(),
+                LastName: $('#lname').val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/Cache/Create",
+                content: "application/json; charset=utf-8",
+                data: data,
+                success: function (d) {
+                    window.location.href = "@Url.Action("Index","Cache")";
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    // TODO: Show error
+                }
+            });
+        });
+
+        $('#deleteBtn').click(function (e) {
+            e.preventDefault();
+            var deleteData = {
+                FirstName: $('#d_fname').val().trim(),
+                LastName: $('#d_lname').val()
+            };
+
+            $.ajax({
+                type: "DELETE",
+                url: "/Cache/Delete",
+                content: "application/json; charset=utf-8",
+                data: deleteData,
+                success: function (d) {
+                    window.location.href = "@Url.Action("Index","Cache")";
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    // TODO: Show error
+                }
+            });
+        });
+    </script>
+}
+
+@section content {
+}

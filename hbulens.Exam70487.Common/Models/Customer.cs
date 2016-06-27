@@ -69,6 +69,15 @@ namespace hbulens.Exam70487.Common
             return false;
         }
 
+        public override int GetHashCode()
+        {
+            int hash = 13;
+            hash = (hash * 7) + this.FirstName.GetHashCode();
+            hash = (hash * 7) + this.LastName.GetHashCode();
+
+            return hash;
+        }
+
         #endregion Methods
     }
 }
