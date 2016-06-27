@@ -21,6 +21,7 @@ The solution is divided into several folders, therefore grouping it into logical
 - Utilities: assemblies supporting the other projects in the solution
 - WCF: projects hosting and consuming WCF Services and WCF Data Services
 - Web APi: projects hosting and consuming Web API services
+- Cache: projects hosting and consuming Memory Cache services and code
 
 Both Web API and WCF service projects are self-hosted console applications, so in order to consume these services you need to run these first:
 - hbulens.Exam70487.WebApi
