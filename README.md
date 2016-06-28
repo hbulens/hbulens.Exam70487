@@ -5,10 +5,10 @@ https://hendrikbulens.wordpress.com/2016/06/04/preparation-guide-for-exam-70-487
 
 ### Prerequisites ##
 
-This solution was created using Visual Studio 2015 RC2. 
+This solution was created using Visual Studio 2015 RC3. 
 You may need to install the following items:
 - SQL Server Data Tools to use the database project inside the solution.
-- ASP.NET Core (the latest edition as available on 11/06/2016)
+- ASP.NET Core 1.0.0.0
 - Azure SDK 2.9
 
 To run the console applications hosting WCF (Data) Services, you may need to do so with administrative privileges.
@@ -21,6 +21,7 @@ The solution is divided into several folders, therefore grouping it into logical
 - Utilities: assemblies supporting the other projects in the solution
 - WCF: projects hosting and consuming WCF Services and WCF Data Services
 - Web APi: projects hosting and consuming Web API services
+- Cache: projects hosting and consuming Memory Cache services and code
 
 Both Web API and WCF service projects are self-hosted console applications, so in order to consume these services you need to run these first:
 - hbulens.Exam70487.WebApi
