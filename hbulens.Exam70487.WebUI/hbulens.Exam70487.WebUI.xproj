@@ -26,6 +26,7 @@
     <ProjectReference Include="..\hbulens.Exam70487.Common\hbulens.Exam70487.Common.csproj" />
     <ProjectReference Include="..\hbulens.Exam70487.Core\hbulens.Exam70487.Core.csproj" />
     <ProjectReference Include="..\hbulens.Exam70487.Repositories\hbulens.Exam70487.Repositories.csproj" />
+    <ProjectReference Include="..\hbulens.Exam70487.Xml\hbulens.Exam70487.Xml.csproj" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

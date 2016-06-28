@@ -81,6 +81,9 @@
         },
         "hbulens.Exam70487.Repositories": {
           "target": "project"
+        },
+        "hbulens.Exam70487.Xml": {
+          "target": "project"
         }
       }
     }

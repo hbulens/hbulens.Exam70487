@@ -44,6 +44,16 @@
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
         "bin/Debug/hbulens.Exam70487.Repositories.dll": {}
       }
+    },
+    "hbulens.Exam70487.Xml/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/hbulens.Exam70487.Xml.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/hbulens.Exam70487.Xml.dll": {}
+      }
     }
   }
 }
