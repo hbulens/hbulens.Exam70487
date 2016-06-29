@@ -26,11 +26,13 @@ The solution is divided into several folders, therefore grouping it into logical
 Both Web API and WCF service projects are self-hosted console applications, so in order to consume these services you need to run these first:
 - hbulens.Exam70487.WebApi
 - hbulens.Exam70487.Wcf
+- hbulens.Exam70487.Wcf.Duplex
 - hbulens.Exam70487.WcfData
 
 The consuming counterparts are console applications that call the exposed services:
 - hbulens.Exam70487.WebApi.Client
 - hbulens.Exam70487.Wcf.Client
+- hbulens.Exam70487.Wcf.Duplex.Client
 - hbulens.Exam70487.WcfData.Client
 
 Ultimately, there is an ASP.NET Core application that combines all these together. If you want to run all samples, you need to run all hosts at the same time.
