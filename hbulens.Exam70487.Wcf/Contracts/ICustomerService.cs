@@ -13,9 +13,21 @@ namespace hbulens.Exam70487.Wcf
     [ServiceContract(Namespace = "https://github.com/hbulens/Exam70487")]
     public interface ICustomerService
     {
+        #region Request-Reply
+
         [MyOperationBehavior]
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)] // REST support
         IEnumerable<Customer> Get();
+
+        #endregion Request-Reply
+
+        #region One-Way
+
+        [MyOperationBehavior]
+        [OperationContract(IsOneWay = true)]
+        void SaveChanges();
+
+        #endregion One-Way        
     }
 }

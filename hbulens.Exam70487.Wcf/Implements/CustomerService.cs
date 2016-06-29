@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using hbulens.Exam70487.Common;
 using System.ServiceModel;
+using System.Threading;
 
 namespace hbulens.Exam70487.Wcf
 {
@@ -25,14 +26,15 @@ namespace hbulens.Exam70487.Wcf
         #endregion Properties
 
         #region Methods
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+      
         public IEnumerable<Customer> Get()
         {
-            return new List<Customer>() { new Customer("Donald","Trump") { } };
+            return new List<Customer>() { new Customer("Donald", "Trump") { } };
+        }
+
+        public void SaveChanges()
+        {
+            Thread.Sleep(5000);
         }
 
         #endregion Methods        

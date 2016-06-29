@@ -13,10 +13,16 @@
   <wsdl:message name="ICustomerService_Get_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetResponse" />
   </wsdl:message>
+  <wsdl:message name="ICustomerService_SaveChanges_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChanges" />
+  </wsdl:message>
   <wsdl:portType name="ICustomerService">
     <wsdl:operation name="Get">
       <wsdl:input wsam:Action="https://github.com/hbulens/Exam70487/ICustomerService/Get" message="tns:ICustomerService_Get_InputMessage" />
       <wsdl:output wsam:Action="https://github.com/hbulens/Exam70487/ICustomerService/GetResponse" message="tns:ICustomerService_Get_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveChanges">
+      <wsdl:input wsam:Action="https://github.com/hbulens/Exam70487/ICustomerService/SaveChanges" message="tns:ICustomerService_SaveChanges_InputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

@@ -123,6 +123,12 @@ namespace hbulens.Exam70487.Wcf.Client.CustomerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="https://github.com/hbulens/Exam70487/ICustomerService/Get", ReplyAction="https://github.com/hbulens/Exam70487/ICustomerService/GetResponse")]
         System.Threading.Tasks.Task<hbulens.Exam70487.Wcf.Client.CustomerService.Customer[]> GetAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="https://github.com/hbulens/Exam70487/ICustomerService/SaveChanges")]
+        void SaveChanges();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="https://github.com/hbulens/Exam70487/ICustomerService/SaveChanges")]
+        System.Threading.Tasks.Task SaveChangesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -158,6 +164,14 @@ namespace hbulens.Exam70487.Wcf.Client.CustomerService {
         
         public System.Threading.Tasks.Task<hbulens.Exam70487.Wcf.Client.CustomerService.Customer[]> GetAsync() {
             return base.Channel.GetAsync();
+        }
+        
+        public void SaveChanges() {
+            base.Channel.SaveChanges();
+        }
+        
+        public System.Threading.Tasks.Task SaveChangesAsync() {
+            return base.Channel.SaveChangesAsync();
         }
     }
 }
