@@ -33,9 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -46,13 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Behaviors\EnableCrossOriginResourceSharingBehavior.cs" />
+    <Compile Include="Behaviors\Contract\MyContractBehavior.cs" />
+    <Compile Include="Behaviors\Endpoint\EnableCorsEndpointBehavior.cs" />
+    <Compile Include="Behaviors\Endpoint\NewtonsoftJsonBehavior.cs" />
     <Compile Include="Contracts\ICustomerService.cs" />
-    <Compile Include="Behaviors\Message Verification\MessageVerificationBehavior.cs" />
-    <Compile Include="Behaviors\Message Verification\MessageVerificationConfigurationSection.cs" />
+    <Compile Include="Behaviors\Endpoint\MessageVerificationEndPointBehavior.cs" />
+    <Compile Include="Behaviors\Service\MessageVerificationServiceBehavior.cs" />
+    <Compile Include="Formatters\NewtonsoftJsonClientFormatter.cs" />
+    <Compile Include="Formatters\NewtonsoftJsonDispatchFormatter.cs" />
+    <Compile Include="Handlers\MyErrorHandler.cs" />
     <Compile Include="Inspectors\Message\CustomHeaderMessageInspector.cs" />
     <Compile Include="Inspectors\Message\MessageInspector.cs" />
-    <Compile Include="Behaviors\ParameterInspectorAttribute.cs" />
+    <Compile Include="Behaviors\Operation\MyOperationBehavior.cs" />
     <Compile Include="Inspectors\Parameter\ParameterInspector.cs" />
     <Compile Include="Implements\CustomerService.cs" />
     <Compile Include="Program.cs" />
@@ -60,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\hbulens.Exam70487.Common\hbulens.Exam70487.Common.csproj">

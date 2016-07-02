@@ -1,27 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace hbulens.Exam70487.Wcf
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CustomHeaderMessageInspector : IDispatchMessageInspector
     {
-        Dictionary<string, string> requiredHeaders;
+        #region Constructor
+
         public CustomHeaderMessageInspector(Dictionary<string, string> headers)
         {
             requiredHeaders = headers ?? new Dictionary<string, string>();
         }
 
-        public object AfterReceiveRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel, System.ServiceModel.InstanceContext instanceContext)
+        #endregion PropertiesConstructor
+
+        #region Properties
+
+        Dictionary<string, string> requiredHeaders;
+
+        #endregion Properties
+
+        #region Methods
+
+        public object AfterReceiveRequest(ref Message request, IClientChannel channel, InstanceContext instanceContext)
         {
+            Console.WriteLine("Message:");
+            Console.WriteLine(request);
+            Console.WriteLine();
+                                        
             return null;
         }
 
-        public void BeforeSendReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
+        public void BeforeSendReply(ref Message reply, object correlationState)
         {
             var httpHeader = reply.Properties["httpResponse"] as HttpResponseMessageProperty;
             foreach (var item in requiredHeaders)
@@ -29,5 +50,7 @@ namespace hbulens.Exam70487.Wcf
                 httpHeader.Headers.Add(item.Key, item.Value);
             }
         }
+
+        #endregion Properties
     }
 }

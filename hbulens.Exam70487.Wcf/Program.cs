@@ -1,4 +1,5 @@
-﻿using System;
+﻿using hbulens.Exam70487.Wcf.Behaviors.Service;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -27,8 +28,8 @@ namespace hbulens.Exam70487.Wcf
 
                 // Create RESTful endpoint
                 ServiceEndpoint httpEndPoint = host.AddServiceEndpoint(typeof(ICustomerService), webHttpBinding, baseHttpAddress);
-                httpEndPoint.EndpointBehaviors.Add(new EnableCrossOriginResourceSharingBehavior());
-                httpEndPoint.Behaviors.Add(new WebHttpBehavior());
+                httpEndPoint.EndpointBehaviors.Add(new EnableCorsEndpointBehavior());
+                httpEndPoint.Behaviors.Add(new NewtonsoftJsonBehavior());
 
                 host.AddServiceEndpoint(typeof(ICustomerService), wsHttpBinding, baseHttpAddress + "/ws");
 

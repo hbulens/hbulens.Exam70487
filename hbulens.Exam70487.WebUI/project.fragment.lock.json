@@ -9,6 +9,13 @@
       },
       "runtime": {
         "bin/Debug/hbulens.Exam70487.Cache.exe": {}
+      },
+      "contentFiles": {
+        "bin/Debug/hbulens.Exam70487.Cache.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
       }
     },
     "hbulens.Exam70487.Common/1.0.0": {
@@ -19,6 +26,13 @@
       },
       "runtime": {
         "bin/Debug/hbulens.Exam70487.Common.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/hbulens.Exam70487.Common.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
       }
     },
     "hbulens.Exam70487.Core/1.0.0": {
@@ -31,6 +45,13 @@
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
         "bin/Debug/hbulens.Exam70487.Core.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/hbulens.Exam70487.Core.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
       }
     },
     "hbulens.Exam70487.Repositories/1.0.0": {
@@ -43,6 +64,13 @@
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
         "bin/Debug/hbulens.Exam70487.Repositories.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/hbulens.Exam70487.Repositories.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
       }
     },
     "hbulens.Exam70487.Xml/1.0.0": {
@@ -53,6 +81,13 @@
       },
       "runtime": {
         "bin/Debug/hbulens.Exam70487.Xml.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/hbulens.Exam70487.Xml.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
       }
     }
   }

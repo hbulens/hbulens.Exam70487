@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace hbulens.Exam70487.Wcf
 {
-    public class EnableCrossOriginResourceSharingBehavior : BehaviorExtensionElement, IEndpointBehavior
+    public class EnableCorsEndpointBehavior : BehaviorExtensionElement, IEndpointBehavior
     {
+        #region IEndpointBehavior
+
         public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
         {
-
         }
 
         public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
         {
-
         }
 
         public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
@@ -35,17 +35,22 @@ namespace hbulens.Exam70487.Wcf
 
         public void Validate(ServiceEndpoint endpoint)
         {
-
         }
+
+        #endregion IEndpointBehavior
+
+        #region Configuration
 
         public override Type BehaviorType
         {
-            get { return typeof(EnableCrossOriginResourceSharingBehavior); }
+            get { return typeof(EnableCorsEndpointBehavior); }
         }
 
         protected override object CreateBehavior()
         {
-            return new EnableCrossOriginResourceSharingBehavior();
+            return new EnableCorsEndpointBehavior();
         }
+
+        #endregion Configuration        
     }
 }

@@ -1,4 +1,5 @@
 ﻿using hbulens.Exam70487.Common;
+using hbulens.Exam70487.Wcf.Behaviors.Contract;
 using hbulens.Exam70487.Wcf.Inspectors;
 using System;
 using System.Collections.Generic;
@@ -17,15 +18,16 @@ namespace hbulens.Exam70487.Wcf
 
         [MyOperationBehavior]
         [OperationContract]
+        [MyContractBehavior]    
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)] // REST support
         IEnumerable<Customer> Get();
 
         #endregion Request-Reply
 
         #region One-Way
-
-        [MyOperationBehavior]
+     
         [OperationContract(IsOneWay = true)]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)] // REST support
         void SaveChanges();
 
         #endregion One-Way        

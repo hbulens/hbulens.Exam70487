@@ -10,7 +10,6 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Item">
         <xs:sequence>
-          <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
         </xs:sequence>

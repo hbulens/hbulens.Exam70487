@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace hbulens.Exam70487.Wcf.Client.Inspectors
 {
-    public class MessageVerificationConfigurationSection : BehaviorExtensionElement, IServiceBehavior
+    public class MessageVerificationServiceBehavior : BehaviorExtensionElement, IServiceBehavior
     {
         #region IServiceBehavior Members
 
