@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>hbulens.Exam70487.Wcf.Client</RootNamespace>
     <AssemblyName>hbulens.Exam70487.Wcf.Client</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -117,6 +117,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Behaviors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\hbulens.Exam70487.Common\hbulens.Exam70487.Common.csproj">
+      <Project>{b7e2e5a9-a358-4de1-ba1a-e7d96a61f6c3}</Project>
+      <Name>hbulens.Exam70487.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\hbulens.Exam70487.Wcf\hbulens.Exam70487.Wcf.csproj">
+      <Project>{c0103828-3ea5-4b27-b87b-d85a43e70e56}</Project>
+      <Name>hbulens.Exam70487.Wcf</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

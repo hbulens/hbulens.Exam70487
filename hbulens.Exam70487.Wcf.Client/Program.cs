@@ -3,6 +3,7 @@ using hbulens.Exam70487.Wcf.Client.Inspectors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,9 +15,16 @@ namespace hbulens.Exam70487.Wcf.Client
         {
             // WSHttpBinding
             CustomerServiceClient wsHttpBindingClient = new CustomerServiceClient("WSHttpBinding_ICustomerService");
-            wsHttpBindingClient.Endpoint.EndpointBehaviors.Add(new MyOperationBehavior());            
+            wsHttpBindingClient.Endpoint.EndpointBehaviors.Add(new MyOperationBehavior());
             Customer[] wsHttpCustomers = wsHttpBindingClient.Get();
             wsHttpBindingClient.SaveChanges();
+
+            // In order to use the ChannelFactory, add reference to the WCF Service Library + the library that contains the models
+            WSHttpBinding myBinding = new WSHttpBinding();
+            EndpointAddress myEndpoint = new EndpointAddress("http://localhost:8080/Customers/ws");
+            ChannelFactory<ICustomerService> myChannelFactory = new ChannelFactory<ICustomerService>(myBinding, myEndpoint);
+            ICustomerService customerService = myChannelFactory.CreateChannel();
+            IEnumerable<Common.Customer> channelFactoryCustomers = customerService.Get();
 
             // NetTcpBinding
             CustomerServiceClient netTcpBindingClient = new CustomerServiceClient("NetTcpBinding_ICustomerService");
