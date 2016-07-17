@@ -43,5 +43,6 @@ To run the sample, see the prerequisites.
 There is also a SQL Server Data Tools project in the solution that contains the database schema for the application. Use the schema compare tool to update the schema. Finally, the post deployment script has some sample data that you can use.
 
 Here's an example of how you can run the projects:
+
 [![Demo CountPages alpha](http://i.imgur.com/MSS6TXR.gif)]
 
