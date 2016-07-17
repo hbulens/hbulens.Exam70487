@@ -11,6 +11,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Web.Http;
 
 namespace hbulens.Exam70487.WebApi.Controllers
@@ -23,9 +24,10 @@ namespace hbulens.Exam70487.WebApi.Controllers
         /// Use Dependency Injection to get the repository instance
         /// </summary>
         /// <param name="customerRepository"></param>
-        public CustomersController(IRepository<Customer> customerRepository)
+        public CustomersController(IRepository<Customer> customerRepository, IRepository<Audit> auditRepository)
         {
             this.CustomerRepository = customerRepository;
+            this.AuditRepository = auditRepository;
         }
 
         #endregion Constructor
@@ -33,6 +35,7 @@ namespace hbulens.Exam70487.WebApi.Controllers
         #region Properties
 
         private IRepository<Customer> CustomerRepository { get; set; }
+        private IRepository<Audit> AuditRepository { get; set; }
 
         #endregion Properties
 
@@ -79,7 +82,14 @@ namespace hbulens.Exam70487.WebApi.Controllers
             if (this.CustomerRepository is EfRepository<Customer>)
             {
                 // Use explicit conversion to get the DbContext from the repository without exposing the DbContext property as public
-                DbContext ctx = (DbContext)(EfRepository<Customer>)this.CustomerRepository;
+                ExamCodeFirstContext ctx = (ExamCodeFirstContext)(EfRepository<Customer>)this.CustomerRepository;
+
+                IQueryable<Customer> customersDeferred = ctx.Customers.Where(x => x.Id > 1);
+                customersDeferred.Load();
+                customersDeferred.Where(x => x.FirstName == "Donald");
+
+                IQueryable<Customer> customersDeferred2 = ctx.Customers.Where(x => x.Id > 1);
+                customersDeferred2.Where(x => x.FirstName == "Donald");
 
                 // Use the adapter to get to the old ObjectContext type
                 IObjectContextAdapter adapter = (IObjectContextAdapter)ctx;
@@ -102,7 +112,14 @@ namespace hbulens.Exam70487.WebApi.Controllers
         [DebugActionWebApiFilter]
         public Customer Post(Customer item)
         {
-            return this.CustomerRepository.Create(item);
+            using (TransactionScope scope = new TransactionScope())
+            {
+                Customer newCustomer = this.CustomerRepository.Create(item);
+                this.AuditRepository.Create(new Audit() { Action = "Create", User = this.User?.Identity?.Name ?? "Anonymous" });
+                scope.Complete();
+
+                return newCustomer;
+            }
         }
 
         [HttpPut]

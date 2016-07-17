@@ -9,104 +9,23 @@
 //------------------------------------------------------------------------------
 
 namespace hbulens.Exam70487.Wcf.Client.CustomerService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Customer", Namespace="http://schemas.datacontract.org/2004/07/hbulens.Exam70487.Common")]
-    [System.SerializableAttribute()]
-    public partial class Customer : hbulens.Exam70487.Wcf.Client.CustomerService.Item {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FirstNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LastNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FirstName {
-            get {
-                return this.FirstNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
-                    this.FirstNameField = value;
-                    this.RaisePropertyChanged("FirstName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LastName {
-            get {
-                return this.LastNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
-                    this.LastNameField = value;
-                    this.RaisePropertyChanged("LastName");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Item", Namespace="http://schemas.datacontract.org/2004/07/hbulens.Exam70487.Common")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(hbulens.Exam70487.Wcf.Client.CustomerService.Customer))]
-    public partial class Item : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="https://github.com/hbulens/Exam70487", ConfigurationName="CustomerService.ICustomerService")]
     public interface ICustomerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="https://github.com/hbulens/Exam70487/ICustomerService/Get", ReplyAction="https://github.com/hbulens/Exam70487/ICustomerService/GetResponse")]
-        hbulens.Exam70487.Wcf.Client.CustomerService.Customer[] Get();
+        hbulens.Exam70487.Common.Customer[] Get();
         
         [System.ServiceModel.OperationContractAttribute(Action="https://github.com/hbulens/Exam70487/ICustomerService/Get", ReplyAction="https://github.com/hbulens/Exam70487/ICustomerService/GetResponse")]
-        System.Threading.Tasks.Task<hbulens.Exam70487.Wcf.Client.CustomerService.Customer[]> GetAsync();
+        System.Threading.Tasks.Task<hbulens.Exam70487.Common.Customer[]> GetAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="https://github.com/hbulens/Exam70487/ICustomerService/Add", ReplyAction="https://github.com/hbulens/Exam70487/ICustomerService/AddResponse")]
+        bool Add(hbulens.Exam70487.Common.Customer customer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="https://github.com/hbulens/Exam70487/ICustomerService/Add", ReplyAction="https://github.com/hbulens/Exam70487/ICustomerService/AddResponse")]
+        System.Threading.Tasks.Task<bool> AddAsync(hbulens.Exam70487.Common.Customer customer);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="https://github.com/hbulens/Exam70487/ICustomerService/SaveChanges")]
         void SaveChanges();
@@ -142,12 +61,20 @@ namespace hbulens.Exam70487.Wcf.Client.CustomerService {
                 base(binding, remoteAddress) {
         }
         
-        public hbulens.Exam70487.Wcf.Client.CustomerService.Customer[] Get() {
+        public hbulens.Exam70487.Common.Customer[] Get() {
             return base.Channel.Get();
         }
         
-        public System.Threading.Tasks.Task<hbulens.Exam70487.Wcf.Client.CustomerService.Customer[]> GetAsync() {
+        public System.Threading.Tasks.Task<hbulens.Exam70487.Common.Customer[]> GetAsync() {
             return base.Channel.GetAsync();
+        }
+        
+        public bool Add(hbulens.Exam70487.Common.Customer customer) {
+            return base.Channel.Add(customer);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddAsync(hbulens.Exam70487.Common.Customer customer) {
+            return base.Channel.AddAsync(customer);
         }
         
         public void SaveChanges() {

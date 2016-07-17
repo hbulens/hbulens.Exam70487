@@ -17,6 +17,7 @@ namespace hbulens.Exam70487.Core
 
         public ExamCodeFirstContext()
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         #endregion Constructor
@@ -25,6 +26,7 @@ namespace hbulens.Exam70487.Core
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Audit> Audits { get; set; }
 
         #endregion Properties
 
@@ -32,8 +34,9 @@ namespace hbulens.Exam70487.Core
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add<Customer>(new CustomerMap());
-            modelBuilder.Configurations.Add<Order>(new OrderMap());
+            modelBuilder.Configurations.Add(new CustomerMap());
+            modelBuilder.Configurations.Add(new OrderMap());
+            modelBuilder.Configurations.Add(new AuditMap());
         }
 
         #endregion Methods                

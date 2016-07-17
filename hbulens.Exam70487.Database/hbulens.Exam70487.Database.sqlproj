@@ -63,6 +63,7 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Customers.sql" />
     <Build Include="dbo\Tables\Orders.sql" />
+    <Build Include="dbo\Tables\Audits.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment1.sql" />

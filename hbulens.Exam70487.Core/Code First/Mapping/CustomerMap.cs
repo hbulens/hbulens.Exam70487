@@ -14,6 +14,8 @@ namespace hbulens.Exam70487
         {
             this.ToTable("Customers");
             this.HasKey(x => x.Id);
+            this.Property(x => x.LastName).IsRequired();
+            this.Property(x => x.FirstName).IsRequired();
 
         }
     }

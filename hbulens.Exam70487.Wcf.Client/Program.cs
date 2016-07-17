@@ -6,6 +6,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace hbulens.Exam70487.Wcf.Client
 {
@@ -14,10 +15,24 @@ namespace hbulens.Exam70487.Wcf.Client
         static void Main(string[] args)
         {
             // WSHttpBinding
-            CustomerServiceClient wsHttpBindingClient = new CustomerServiceClient("WSHttpBinding_ICustomerService");
+            CustomerServiceClient wsHttpBindingClient = new CustomerServiceClient("WSHttpBinding_ICustomerService");            
             wsHttpBindingClient.Endpoint.EndpointBehaviors.Add(new MyOperationBehavior());
-            Customer[] wsHttpCustomers = wsHttpBindingClient.Get();
+            Common.Customer[] wsHttpCustomers = wsHttpBindingClient.Get();
             wsHttpBindingClient.SaveChanges();
+
+            try
+            {
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    wsHttpBindingClient.Add(new Common.Customer() { FirstName = "Bill", LastName = "Jobs" });
+                    wsHttpBindingClient.Add(null);
+                    scope.Complete();
+                }
+            }
+            catch (FaultException ex)
+            {
+                Console.WriteLine("Whoops! " + ex.Message);
+            }
 
             // In order to use the ChannelFactory, add reference to the WCF Service Library + the library that contains the models
             WSHttpBinding myBinding = new WSHttpBinding();
@@ -29,12 +44,12 @@ namespace hbulens.Exam70487.Wcf.Client
             // NetTcpBinding
             CustomerServiceClient netTcpBindingClient = new CustomerServiceClient("NetTcpBinding_ICustomerService");
             netTcpBindingClient.Endpoint.EndpointBehaviors.Add(new MyOperationBehavior());
-            Customer[] netTcpCustomers = netTcpBindingClient.Get();
-
+            Common.Customer[] netTcpCustomers = netTcpBindingClient.Get();
+            
             // NetNamedPipeBinding
             CustomerServiceClient netNamedPipeBindingClient = new CustomerServiceClient("NetNamedPipeBinding_ICustomerService");
             netNamedPipeBindingClient.Endpoint.EndpointBehaviors.Add(new MyOperationBehavior());
-            Customer[] netNamedPipeCustomers = netNamedPipeBindingClient.Get();
+            Common.Customer[] netNamedPipeCustomers = netNamedPipeBindingClient.Get();
 
             Console.WriteLine("Press <Enter> to stop the client.");
             Console.ReadLine();

@@ -150,38 +150,7 @@ namespace hbulens.Exam70487.Wcf.Behaviors.Service
             return this.DefaultBodyStyle;
         }
         private void ValidateOperation(OperationDescription operation)
-        {
-            if (operation.Messages.Count > 1)
-            {
-                if (operation.Messages[1].Body.Parts.Count > 0)
-                {
-                    throw new InvalidOperationException("Operations cannot have out/ref parameters.");
-                }
-            }
-
-            string uriTemplate = this.GetUriTemplate(operation);
-            if (uriTemplate != null)
-            {
-                throw new InvalidOperationException("UriTemplate support not implemented in this behavior.");
-            }
-
-            WebMessageBodyStyle bodyStyle = this.GetBodyStyle(operation);
-            int inputParameterCount = operation.Messages[0].Body.Parts.Count;
-            if (!this.IsGetOperation(operation))
-            {
-                bool wrappedRequest = bodyStyle == WebMessageBodyStyle.Wrapped || bodyStyle == WebMessageBodyStyle.WrappedRequest;
-                if (inputParameterCount == 1 && wrappedRequest)
-                {
-                    throw new InvalidOperationException("Wrapped body style for single parameters not implemented in this behavior.");
-                }
-            }
-
-            bool wrappedResponse = bodyStyle == WebMessageBodyStyle.Wrapped || bodyStyle == WebMessageBodyStyle.WrappedResponse;
-            bool isVoidReturn = operation.Messages.Count == 1 || operation.Messages[1].Body.ReturnValue.Type == typeof(void);
-            if (!wrappedResponse)
-            {
-                throw new InvalidOperationException("Wrapped response not implemented in this behavior.");
-            }
+        {            
         }
     }
 }

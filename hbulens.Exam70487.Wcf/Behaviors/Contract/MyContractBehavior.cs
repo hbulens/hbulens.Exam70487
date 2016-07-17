@@ -23,7 +23,7 @@ namespace hbulens.Exam70487.Wcf.Behaviors.Contract
 
         public void ApplyDispatchBehavior(ContractDescription contractDescription, ServiceEndpoint endpoint, DispatchRuntime dispatchRuntime)
         {
-            Console.WriteLine("In MyContractBehaviorAttribute.ApplyDispatchBehavior"); throw new NotImplementedException();
+            Console.WriteLine("In MyContractBehaviorAttribute.ApplyDispatchBehavior"); 
         }
 
         public void Validate(ContractDescription contractDescription, ServiceEndpoint endpoint)
