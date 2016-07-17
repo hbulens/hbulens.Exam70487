@@ -44,5 +44,5 @@ There is also a SQL Server Data Tools project in the solution that contains the 
 
 Here's an example of how you can run the projects:
 
-[![Demo CountPages alpha](http://i.imgur.com/MSS6TXR.gif)]
+![Demo CountPages alpha](http://i.imgur.com/MSS6TXR.gif)
 
