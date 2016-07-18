@@ -14,7 +14,7 @@ namespace hbulens.Exam70487.WcfData
     {
         static void Main(string[] args)
         {
-            Uri baseAddress = new Uri("http://localhost:8080/ExamDataService");
+            Uri baseAddress = new Uri("http://localhost:8083/ExamDataService");
             Uri[] baseAddresses = new Uri[] { baseAddress };
 
             using (DataServiceHost host = new DataServiceHost(typeof(ExamDataService), baseAddresses))
