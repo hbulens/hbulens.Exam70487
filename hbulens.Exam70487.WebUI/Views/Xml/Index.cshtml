@@ -1,5 +1,4 @@
-﻿
-<div class="row">
+﻿<div class="row">
     <div class="col-lg-12">
         <h2>Information <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></h2>
         <p>This page works with XML structures:</p>
@@ -11,6 +10,29 @@
 </div>
 
 <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">LINQ 2 XML</a>
+            </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+            <div class="panel-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="comment">Output XML:</label>
+                        <textarea readonly class="form-control" rows="25">@ViewBag.Xml</textarea>
+
+                        <ul>
+                            <li>Node count: @ViewBag.NodeCount</li>
+                            <li>Elements with first name: @ViewBag.CountFirstName</li>
+                            <li>Elements with crazy count: Off The Charts: @ViewBag.CrazyCount (@ViewBag.CrazyCountList)</li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
@@ -26,7 +48,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="comment">Ouput XML:</label>
+                        <label for="comment">Output XML:</label>
                         <textarea readonly class="form-control" rows="5" id="commentResponse"></textarea>
                     </div>
 

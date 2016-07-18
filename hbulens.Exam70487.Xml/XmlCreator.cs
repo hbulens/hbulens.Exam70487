@@ -32,7 +32,7 @@ namespace hbulens.Exam70487.Xml
             }
 
 
-            return "Document is now available on " + mydocpath + @"\Exam70487.txt";
+            return mydocpath + @"\Exam70487.txt";
         }
     }
 }
